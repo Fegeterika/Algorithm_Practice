@@ -22,6 +22,10 @@ class Solution {
     static int maxSum(TreeNode root) {
         int maxSum = 0;
         
+        if (root == null) {
+            return 0;   
+        }
+        
         int leftSum = maxSum(root.left);
         int rightSum = maxSum(root.right);
         

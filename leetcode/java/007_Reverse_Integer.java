@@ -1,4 +1,5 @@
-/* 7. Reverse Integer / Easy
+/* 
+7. Reverse Integer / Easy
 
 Reverse digits of an integer.
 
@@ -8,7 +9,8 @@ Example2: x = -123, return -321
 click to show spoilers.
 
 Note:
-The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows. */
+The input is assumed to be a 32-bit signed integer. Your function should return 0 when the reversed integer overflows. 
+*/
 
 /* Method 1 */
 

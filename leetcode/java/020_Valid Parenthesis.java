@@ -1,5 +1,5 @@
 /* 
-20 - Valid Parenthesis / Easy
+20. Valid Parenthesis / Easy
 
 Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 

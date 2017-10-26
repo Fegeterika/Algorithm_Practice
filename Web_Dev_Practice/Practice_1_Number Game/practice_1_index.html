@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Practice 1 - Number Game</title>
+
+		<style type="text/css" rel="stylesheet">
+			.score {
+				font-size: 24px;
+			}
+
+			.win {
+				color: green;
+			}
+
+		</style>
+
+	</head>
+	<body>
+		<h1 class="score"><span id="pOneScore">1</span> to <span id="pTwoScore">0</span></h1>
+		<p>Playing to: <span id="roundLimit">5</span></p>
+		<form>
+			<input type="number" min="1" max="10">
+			<button value="Player One" id="pOneBtn">Player One Wins</button>
+			<button value="Player Two" id="pTwoBtn">Player Two Wins</button>
+			<button value="res" id="reset">Reset</button>			
+		</form>
+
+		<script type="text/javascript" language="javascript">
+			
+			var pOneSc = 0;
+			var pTwoSc = 0;
+			var rLimN = 5;
+
+			var gameEnd = false;
+
+			var pOne = document.getElementById("pOneScore");
+			var pTwo = document.getElementById("pTwoScore");
+			var rLim = document.getElementById("roundLimit");
+			var pOneBtn = document.getElementById("pOneBtn");
+			var pTwoBtn = document.getElementById("pTwoBtn");
+			var res = document.querySelectorAll("button")[2];
+			var inpN = document.querySelector("input");
+
+			pOneBtn.addEventListener("click", function(event) {event.preventDefault(); pOneWin();}, false);
+			pTwoBtn.addEventListener("click", function(event) {event.preventDefault(); pTwoWin();}, false);
+			res.addEventListener("click", function(event){event.preventDefault(); reset();}, false);
+			inpN.addEventListener("input", function(event){event.preventDefault(); roundLN();}, false);
+
+			reset();
+
+			function pOneWin() {
+				if (!gameEnd) {
+					pOneSc++;
+					console.log("Player One Wins");
+					updateSc();
+				}
+			}
+
+			function pTwoWin() {
+				if (!gameEnd) {
+					pTwoSc++;
+					console.log("Player Two Wins");
+					updateSc();
+				}
+			}
+
+			function roundLN() {
+					rLimN = parseInt(inpN.value);
+					console.log("Round Limit Changed");
+					updateSc();
+			}
+
+			function reset() {
+				pOneSc = 0;
+				pTwoSc = 0;
+				rLimN = 5;
+				gameEnd = false;
+				pOne.classList.remove("win");
+				pTwo.classList.remove("win");
+				console.log("Reset Done");
+				updateSc();
+			}
+
+			function updateSc() {
+				pOne.textContent = pOneSc;
+				pTwo.textContent = pTwoSc;
+				rLim.textContent = '' + rLimN;
+				console.log("updated");
+
+				if (pOneSc >= rLimN) {
+					gameEnd = true;
+					pOne.classList.add("win");
+				}
+				else if (pTwoSc >= rLimN) {
+					gameEnd = true;
+					pTwo.classList.add("win");
+				}
+			}
+
+		</script>
+
+	</body>
+</html>

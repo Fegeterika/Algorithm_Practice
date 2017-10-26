@@ -1,0 +1,18 @@
+<% include partials/header %>
+
+<h1>Results:</h1>
+
+<% var maxNum = (data["Search"].length <= resNum) ? data["Search"].length : resNum; %>
+<% for (var i = 0; i < maxNum; i++) { %>
+    <ul>
+        <li>
+            <em>
+                <%= data["Search"][i]["Title"] %>
+            </em> 
+            - <%= data["Search"][i]["Year"] %></li>
+    </ul>
+<% } %>
+
+<a href="/">Clear Search</a>
+
+<% include partials/footer %>

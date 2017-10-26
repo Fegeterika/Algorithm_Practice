@@ -1,2 +1,2 @@
-# codeWarPractice
-Question &amp; Solution of www.codewars.com Katas
+# Dev_Practices
+Just a storage of all development practices

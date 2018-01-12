@@ -35,7 +35,7 @@ class MapCounter(object):
 
     def __check_pos(self, i, j):
         """ Check if given position can be visited """
-        if (i < self.num_row and i > -1 and j < self.num_row and j > -1):
+        if (i < self.num_row and i > -1 and j < self.num_col and j > -1):
             if (self.map[i][j] == 1):
                 return True
         return False

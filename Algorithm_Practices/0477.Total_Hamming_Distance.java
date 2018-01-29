@@ -30,7 +30,7 @@ class Solution {
 }
 
 /*
-This is O(n log n) solution
+This is O(n^2) solution
 class Solution {
     public int totalHammingDistance(int[] nums) {
         int hammingDist = 0;

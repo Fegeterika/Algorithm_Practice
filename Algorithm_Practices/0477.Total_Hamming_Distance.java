@@ -17,6 +17,22 @@ Length of the array will not exceed 10^4.
 */
 class Solution {
     public int totalHammingDistance(int[] nums) {
+        int total = 0, n = nums.length;
+        for (int i = 0; i < 32; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (((1 << i) & nums[j]) == 0) count++;
+            }
+            total += count * (n - count);
+        }
+        return total;
+    }
+}
+
+/*
+This is O(n log n) solution
+class Solution {
+    public int totalHammingDistance(int[] nums) {
         int hammingDist = 0;
         for (int i = 0; i < nums.length - 1; i++) {
             for (int j = i + 1; j < nums.length; j++) {
@@ -35,3 +51,4 @@ class Solution {
         return count;
     }
 }
+*/

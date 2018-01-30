@@ -73,6 +73,7 @@ class Solution {
 
 /*
 This is a slower solution checking using cache
+This could have been a little faster by using HashMap
 
 class Solution {
     public String replaceWords(List<String> dict, String sentence) {

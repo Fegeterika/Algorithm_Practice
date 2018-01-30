@@ -17,6 +17,63 @@ The input will only have lower-case letters.
 1 <= sentence words length <= 1000
 
 */
+
+class Solution {
+    public String replaceWords(List<String> dict, String sentence) {
+        String[] tokens = sentence.split(" ");
+        TrieNode root = buildTrie(dict);
+
+        StringBuilder res = new StringBuilder();
+
+        for (String token : tokens) {
+            res.append(replaceWord(root, token));
+            res.append(" ");
+        }
+        return res.toString().trim();
+    }
+
+    private String replaceWord(TrieNode root, String token) {
+        StringBuilder sb = new StringBuilder();
+        TrieNode temp = root;
+        for (Character c : token.toCharArray()) {
+            sb.append(c);
+            if (temp != null) {
+                temp = temp.children[c - 'a'];
+                if (temp != null && temp.isWord) return sb.toString();
+            }
+        }
+        return sb.toString();
+    }
+
+    private TrieNode buildTrie(List<String> words) {
+        TrieNode root = new TrieNode(' ');
+        for (String word : words) {
+            TrieNode temp = root;
+            for (Character c : word.toCharArray()) {
+                if (temp.children[c - 'a'] == null) {
+                    temp.children[c - 'a'] = new TrieNode(c);
+                }
+                temp = temp.children[c - 'a'];
+            }
+            temp.isWord = true;
+        }
+        return root;
+    }
+
+    private class TrieNode {
+        char val;
+        boolean isWord = false;
+        TrieNode[] children = new TrieNode[26];
+
+        public TrieNode(char c) {
+            val = c;
+        }
+    }
+}
+
+/*
+This is a slower solution checking using cache
+
 class Solution {
     public String replaceWords(List<String> dict, String sentence) {
         String[] words = sentence.split(" ");
@@ -35,4 +92,5 @@ class Solution {
         }
         return sb.toString().trim();
     }
+*/
 }

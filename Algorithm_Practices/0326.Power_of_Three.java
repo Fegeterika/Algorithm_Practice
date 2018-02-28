@@ -13,3 +13,11 @@ class Solution {
         return false;
     }
 }
+
+/*
+public class Solution {
+public boolean isPowerOfThree(int n) {
+    // 1162261467 is largest power of three that fits inside 32bit Integer
+    return (n > 0 && 1162261467 % n == 0);
+}
+*/

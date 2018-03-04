@@ -1,0 +1,11 @@
+.todoapp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.todolist {
+  width: 500px;
+  display: inline-block;
+}

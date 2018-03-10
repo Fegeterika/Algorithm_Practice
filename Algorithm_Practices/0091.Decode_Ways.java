@@ -24,7 +24,7 @@ class Solution {
             int prev = Integer.parseInt(s.substring(i - 1, i));
             int combined = Integer.parseInt(s.substring(i - 2, i));
             if (prev >= 1 && prev <= 9) {
-                // if previous is 1 ~ 9, using i-th char by itself yields dp[i - 1] ways to decode
+                // if current is 1 ~ 9, using i-th char by itself yields dp[i - 1] ways to decode
                 dp[i] += dp[i - 1];
             }
             if (combined >= 10 && combined <= 26) {

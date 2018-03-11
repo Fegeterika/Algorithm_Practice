@@ -9,7 +9,7 @@ c) Replace a character
 */
 object Solution {
     def minDistance(word1: String, word2: String): Int = {
-        val dp: Array[Array[Int]] = Array.fill(word1.length + 1)(Array.fill(word2.length + 1)(0))
+        val dp: Array[Array[Int]] = Array.ofDim[Int](word1.length + 1, word2.length + 1)
         for (i <- 0 to word1.length; j <- 0 to word2.length) {
             if (i == 0 && j != 0) {
                 dp(i)(j) = dp(i)(j - 1) + 1

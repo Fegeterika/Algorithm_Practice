@@ -3,7 +3,6 @@ from functools import wraps
 from random import randint
 
 class Sorter(object):
-
     def check_time(f):
         @wraps(f)
         def inner(*args, **kwargs):

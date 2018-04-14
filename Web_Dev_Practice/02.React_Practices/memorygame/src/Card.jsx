@@ -5,7 +5,7 @@ class Card extends Component {
 
   render() {
     const {id, color, cardState} = this.props;
-    const style = {backgroundColor: cardState === 0 ? 'grey' : color};
+    const style = { backgroundColor: cardState === 0 ? 'grey' : color };
     return (
       <div
         className="card-container"
